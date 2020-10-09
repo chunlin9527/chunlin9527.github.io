@@ -5,14 +5,16 @@
   <title>JS Bin</title>
 </head>
 <style>
+  body {
+    margin: 20px;
+  }
   body > div:first-child {
     background-color: red;
-    margin: 20px 12px;
+    min-width: 600px;
   }
   .a {
-    width: 618px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 600px;
+    margin: auto;
   }
 </style>
 <body>
@@ -22,17 +24,18 @@
 
   <style>
     .b {
-      max-width: 580px;
-      height: 240px;
+      max-width: 600px;
+      box-sizing: border-box;
       padding: 0px 10px;
       border: 2px solid black;
       margin: auto;
+      margin-top: 20px;
       }
 
     p {
       height: 4em;
       line-height: 1.4;
-      overflow-y: scroll;
+      overflow-y: auto;
       }
 
       .c {
@@ -58,12 +61,18 @@
   <style>
     .d {
       width: 0px;
-      height: 0px;
       border: 50px solid orange;
       border-color: transparent transparent orange transparent;
       margin: auto;
     }
+    .e {
+      width: 0px;
+      border: 50px solid orange;
+      border-color: orange transparent transparent  transparent;
+      margin: auto;
+    }
   </style>
   <div class="d"></div>
+  <div class="e"></div>
 </body>
 </html>

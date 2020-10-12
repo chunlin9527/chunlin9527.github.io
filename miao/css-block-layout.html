@@ -13,77 +13,67 @@
     margin: 0px;
     padding: 0px;
   }
-  body > div:first-child {
+  header {
     background-color: black;
-    min-width: 600px;
-  }
-  .a p {
     color: white;
     width: 600px;
-    margin: auto;
+    padding: 0 calc(50% - 300px);
   }
 
   main {
-    max-width: 600px;
-    margin: auto;
-    margin-top: 16px;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0px;
     width: 600px;
-    height: 205px;
-    margin-top: 16px;
     margin-left: auto;
     margin-right: auto;
   }
-  li {
-    width: 174px;
-    height: 34px;
+
+  ul.one {
+    list-style: none;
+    padding-left: 0px; /* 列表圆点的内边距 */
+    height: 205px;
+  }
+  .one li {
+    box-sizing: border-box;
+    width: 180px;
+    height: 40px;
     border: 3px solid black;
     background-color: pink;
     margin: 15px 0px;
     text-align: center;
     line-height: 34px;
   }
-  li:nth-child(n+5) {
+  .one li:nth-child(n+5) {
     margin-left: 210px;
   }
-  li:nth-child(n+9) {
+  .one li:nth-child(n+9) {
     margin-left: 420px;
   }
-  li:nth-child(4n) {
+  .one li:nth-child(4n) {
     margin-bottom: -220px;
   }
-  li:hover {
+  .one li:hover {
     background-color: red;
   }
 
-  div.two {
+  ul.two {
     font-size: 0px;
-    width: 600px;
-    margin: auto;
-    margin-top: 50px;
+    padding-left: 0px; /* 列表圆点的内边距 */
   }
-  div span {
-    font-size: 16px;
-    display: inline-block;
-    width: 174px;
-    height: 34px;
+  .two li {
+    font-size: initial;
+    display: inline-block; /* 会将列表前圆点隐藏 */
+    box-sizing: border-box;
+    width: 180px;
+    height: 40px;
     border: 3px solid black;
     background-color: pink;
-    margin: 0px 15px 15px;
+    margin: 0px 30px 15px 0px;
     text-align: center;
     line-height: 34px;
   }
-  div span:nth-child(3n+1) {
-    margin-left: 0px;
-  }
-  div span:nth-child(3n+3) {
+    .two li:nth-child(3n+3) {
     margin-right: 0px;
-  }
-  div span:hover {
+  } 
+  .two :hover {
     background-color: red;
   }
 
@@ -103,7 +93,7 @@
 
   .bottom {
     background-color:violet;
-    margin: 20px 0px;
+    margin: auto;
     min-width: 600px;
   }
   .bottom p {
@@ -113,13 +103,15 @@
 
 </style>
 <body>
-  <div class="a">
-    <p>hello world 请调整浏览器窗口大小查看效果</p>
-  </div>
+  <header>
+    hello world 请调整浏览器窗口大小查看效果
+  </header>
 
-  <main>页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px</main>
+  <main>
 
-  <ul>
+  <p>页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px 页面主体 宽度600px</p>
+
+  <ul class="one">
     <li>宽180高40(包含边框)</li>
     <li>水平间隙30px</li>
     <li>垂直间隙15px</li>
@@ -134,20 +126,20 @@
     <li>产品</li>
   </ul>
 
-  <div class="two">
-    <span>产品</span>
-    <span>产品</span>
-    <span>产品</span>
-    <span>产品</span>
-    <span>产品</span>
-    <span>产品</span>
-    <span>产品</span>
-    <span>产品</span>
-    <span>产品</span>
-    <span>产品</span>
-    <span>产品</span>
-    <span>产品</span>
-  </div>
+  <ul class="two">
+    <li>产品</li>
+    <li>产品</li>
+    <li>产品</li>
+    <li>产品</li>
+    <li>产品</li>
+    <li>产品</li>
+    <li>产品</li>
+    <li>产品</li>
+    <li>产品</li>
+    <li>产品</li>
+    <li>产品</li>
+    <li>产品</li>
+  </ul>
 
   <div class="link">
     <a href="">link</a>
@@ -156,6 +148,8 @@
     <a href="">link</a>
     <a href="">link</a>
   </div>
+
+  </main>
 
   <div class="bottom">
     <P>©版权所有</P>

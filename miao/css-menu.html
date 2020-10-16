@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>菜单</title>
+</head>
+<style>
+
+  * {
+    margin: 0;
+    padding: 0; /* ul的内边距 */
+    background-color: rgba(0,0,0,0.1); 
+  }
+  ul {
+    height: 50px;
+    background-color: #808080;
+    font-size: 0;
+  }
+  ul li {
+    white-space: nowrap;
+    position: relative;
+    display: inline-block;
+    font-size: 16px;
+    color: white;
+    line-height: 50px;
+    padding: 0 10px;
+  }
+  li ul {
+    display: none;
+  }
+  li:hover > ul {
+    display: block;
+  }
+  ul ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+  }
+  ul ul ul {
+    position: absolute;
+    top: 0;
+    left: 100%;
+  }
+  li li {
+    display: block;
+    background-color: teal;
+  }
+</style>
+<body>
+  <ul>
+    <li>
+      文件
+      <ul>
+        <li>
+          新建文件
+          <ul>
+            <li>
+              New
+              <ul>
+                <li>文件1</li>
+                <li>文件2</li>
+                <li>文件3</li>
+              </ul>
+            </li>
+            <li>New File</li>
+          </ul>
+        </li>
+        <li>
+          新建窗口
+          <ul>
+            <li>窗口1</li>
+            <li>窗口2</li>
+            <li>窗口3</li>
+          </ul>
+        </li>
+        <li>打开文件</li>
+        <li>打开文件夹</li>
+        <li>打开工作区</li>
+        <li>
+          打开最近的文件
+          <ul>
+            <li>重新打开已关闭的编辑器</li>
+            <li>更多...</li>
+            <li>清除最近打开记录</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>
+      编辑
+      <ul>
+        <li>撤销</li>
+        <li>恢复</li>
+      </ul>
+    </li>
+    <li>选择
+      <ul>
+        <li>
+          全选
+          <ul>
+            <li>全屏</li>
+            <li>禅模式</li>
+            <li>居中布局</li>
+          </ul>
+        </li>
+        <li>
+          展开选定内容
+          <ul>
+            <li>向上拆分</li>
+            <li>向下拆分</li>
+            <li>向左拆分</li>
+            <li>向右拆分</li>
+          </ul>
+        </li>
+        <li>缩小选定范围</li>
+      </ul>
+    </li>
+    <li>查看</li>
+    <li>转到</li>
+    <li>运行</li>
+  </ul>  
+</body>
+</html>

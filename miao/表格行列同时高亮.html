@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>行列同时高亮</title>
+</head>
+<style>
+  table {
+    border-collapse: collapse;
+    border: 2px solid black;
+    overflow: hidden;
+  }
+
+  tr:hover {
+    background-color: lime;
+  }
+  td, th {
+    position: relative;
+  }
+  td:hover span {
+    width: 100%;
+    height: 1000px;
+    background-color: red;
+    position: absolute;
+    top: -499px;
+    left: 0;
+    z-index: -10;
+  }
+  
+  th:hover span {
+    width: 100%;
+    height: 1000px;
+    background-color: blue;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -10;
+  }
+  
+</style>
+<body>
+  <table>
+    <thead>
+      <tr>
+        <th>a<span></span></th>
+        <th>b<span></span></th>
+        <th>c<span></span></th>
+        <th>d<span></span></th>
+        <th>e<span></span></th>
+        <th>f<span></span></th>
+        <th>g<span></span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>111<span></span></td>
+        <td>222<span></span></td>
+        <td>333<span></span></td>
+        <td>444<span></span></td>
+        <td>555<span></span></td>
+        <td>666<span></span></td>
+        <td>777<span></span></td>
+      </tr>
+      <tr>
+        <td>111<span></span></td>
+        <td>222<span></span></td>
+        <td>333<span></span></td>
+        <td>444<span></span></td>
+        <td>555<span></span></td>
+        <td>666<span></span></td>
+        <td>777<span></span></td>
+      </tr>
+      <tr>
+        <td>111<span></span></td>
+        <td>222<span></span></td>
+        <td>333<span></span></td>
+        <td>444<span></span></td>
+        <td>555<span></span></td>
+        <td>666<span></span></td>
+        <td>777<span></span></td>
+      </tr>
+      <tr>
+        <td>111<span></span></td>
+        <td>222<span></span></td>
+        <td>333<span></span></td>
+        <td>444<span></span></td>
+        <td>555<span></span></td>
+        <td>666<span></span></td>
+        <td>777<span></span></td>
+      </tr>
+      <tr>
+        <td>111<span></span></td>
+        <td>222<span></span></td>
+        <td>333<span></span></td>
+        <td>444<span></span></td>
+        <td>555<span></span></td>
+        <td>666<span></span></td>
+        <td>777<span></span></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

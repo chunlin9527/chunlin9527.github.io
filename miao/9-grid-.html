@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>九宫格</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  table {
+    border-collapse: collapse;
+    margin:200px auto;
+  }
+  td {
+    border: 5px solid blue;
+    padding: 10px 15px;
+    position: relative;
+    
+  }
+  td:hover span{
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 100%;
+    height: 41px;
+    border: 5px solid red;
+    text-align: center;
+    line-height: 41px;
+  }
+  
+</style>
+<body>
+  <table>
+    <thead></thead>
+    <tbody>
+      <tr>
+        <td><span>1</span></td>
+        <td><span>2</span></td>
+        <td><span>3</span></td>
+      </tr>
+      <tr>
+        <td><span>4</span></td>
+        <td><span>5</span></td>
+        <td><span>6</span></td>
+      </tr>
+      <tr>
+        <td><span>7</span></td>
+        <td><span>8</span></td>
+        <td><span>9</span></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

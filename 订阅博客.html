@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>放大</title>
+</head>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  div.a {
+    background-color: #9ccce1;
+    width: 500px;
+    height: 200px;
+    position: relative;
+  }
+  div.b {
+    background-color: #fd210a;
+    width: 500px;
+    height: 5px;
+  }
+  span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 3s linear;
+  }
+  span:hover {
+    font-size: 120px;
+  }
+
+  .c {
+    background-color: #9ccce1;
+    width: 500px;
+    height: 200px;
+    display: table-cell;
+    vertical-align: bottom;
+    transition: 3s linear;
+  }
+  .c:hover {
+    font-size: 120px;
+  }
+  .d {
+    background-color: #9ccce1;
+    width: 500px;
+    height: 200px;
+    transition: 3s linear;
+  }
+  .d::after {
+    content: '';
+    display: inline-block;
+    height: 200px;
+    width: 5px;
+    background-color: red;
+    vertical-align: bottom;
+  }
+  div:hover {
+    font-size: 108px;
+  }
+</style>
+<body>
+  <main>
+    <div class="a">
+      <span>订阅博客</span>
+    </div>
+    <div class="b"></div>
+  </main>
+
+  
+  <div class="c">
+    订阅博客
+  </div>
+  
+  <div class="d">
+    订阅博客
+  </div>
+
+</body>
+</html>

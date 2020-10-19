@@ -10,14 +10,13 @@
     height: 500px;
     background-color: seagreen;
     object-fit: contain;
-    align-content: center;
   }
 
   .b {
-    box-sizing: border-box;
     width: 500px;
     height: 500px;
     background: no-repeat seagreen url(https://hbimg.huabanimg.com/fbf6f93d1512274abf7efc872255775e977b5e0230982-XZ1qFs_fw658/format/webp) center;
+    background-size: contain;
   }
 
   div {
@@ -28,10 +27,13 @@
   }
 
   .c {
+    max-width: 100%;
+    max-height: 100%;
     position: absolute;
-    width: 500px;
     top: 0;
+    left: 0;
     bottom: 0;
+    right: 0;
     margin: auto;
   }
 </style>

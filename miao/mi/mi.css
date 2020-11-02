@@ -1,7 +1,7 @@
   .top {
     min-width: 1226px;
     height: 120px;
-    background: url(../../picture/mi/1.jpg) no-repeat center center;
+    background: url(./picture/1.jpg) no-repeat center center;
     background-size: auto 120px;
   }
   .header {
@@ -101,7 +101,7 @@
     margin: 23px 0;
     background-color: #ff6700;
     background-repeat: no-repeat;
-    background-image: url(../../picture/mi/4.png), url(../../picture/mi/5.png);
+    background-image: url(./picture/4.png), url(./picture/5.png);
     background-position: center center, -54px center;
     transition: .3s;
   }
@@ -926,6 +926,10 @@
     top: 471px;
     left: 992px;
   }
+  .match .match-group .match-11 .point {
+    margin-top: 45px;
+    margin-left: -72px;
+  }
   .match .match-group .match-s:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 30px rgba(0,0,0,.1);
@@ -941,19 +945,13 @@
     color: #333;
     height: 58px;
     line-height: 58px;
-    margin-top: 15px;
+    margin-top: 20px;
   }
   .fitting .caption {
     width: 130px;
     height: 50px;
     position: relative;
     margin-top: -50px;
-  }
-  .fitting .caption .caption-s {
-    color: #333;
-    padding: 3px 0;
-    position: absolute;
-    transition: color 0s 9999s;
   }
   .fitting .caption .caption-1 {
     top: 5px;
@@ -962,6 +960,12 @@
   .fitting .caption .caption-2 {
     top: 5px;
     right: 0;
+  }
+  .fitting .caption .caption-s {
+    color: #333;
+    padding: 3px 0;
+    position: absolute;
+    transition: color 0s 9999s;
   }
   .fitting .caption:hover .caption-s {
     color: #333;
@@ -972,6 +976,7 @@
     border-bottom: 2px solid #ff6700;
     transition: none;
   }
+  /* 为何无效 */
   .fitting .fitting-group .fitting-s {
     width: 234px;
     height: 260px;
@@ -994,24 +999,29 @@
     height: 300px;
     object-fit: contain;
   }
-  .fitting .fitting-group .fitting-10 {
+  .fitting .fitting-group .fitting-10,
+  .fitting .fitting-group .fitting-11 {
     width: 234px;
     height: 143px;
     padding: 30px 25px 0;
     box-sizing: border-box;
   }
-  .fitting .fitting-group .fitting-10 img {
+  .fitting .fitting-group .fitting-10 img,
+  .fitting .fitting-group .fitting-11 img {
     width: 80px;
     height: 80px;
     object-fit: contain;
   }
-  .fitting .fitting-group .fitting-10 h2 {
+  .fitting .fitting-group .fitting-11 h2 {
     font-size: 18px;
     color: #333;
     font-weight: 500;
-    padding-top: 20px;
+    margin-top: 5px;
   }
-  .fitting .fitting-group .fitting-10 i {
+  .fitting .fitting-group .fitting-11 .point {
+    margin-top: -15px;
+  }
+  .fitting .fitting-group .fitting-11 i {
     font-size: 54px;
     color: #ff6700;
     margin-top: 12px;

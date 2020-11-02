@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  font-family: Helvetica Neue, Helvetica,Arial, Microsoft Yahei,Hiragino Sans GB,Heiti SC, WenQuanYi Micro Hei, sans-serif;
+  /* background-color: rgba(0, 0, 0, 0.1); */
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+a {
+  text-decoration: none;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+body {
+  margin-bottom: 700px;
+}

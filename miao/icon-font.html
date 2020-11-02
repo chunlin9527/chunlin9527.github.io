@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>文字图标</title>
+  <link rel="stylesheet" href="">
+</head>
+<style>
+  @font-face {
+    font-family: 'FontAwesome';
+    src: url(css/fontawesome-webfont.woff2);
+  }
+  .fa {
+    font-family: "FontAwesome";
+  }
+
+  .fa-music::before {
+    content: '\f001';
+  }
+  .fa-camera::before {
+    content: '\f002';
+  }
+  .fa-mail::before {
+    content: '\f003';
+  }
+  .fa-love::before {
+    content: '\f004';
+  }
+  .fa-star::before {
+    content: '\f005';
+  }
+
+  .fa-1x {
+    font-size: 100%;
+  }
+  .fa-2x {
+    font-size: 200%;
+  }
+  .fa-3x {
+    font-size: 300%;
+  }
+  .fa-4x {
+    font-size: 400%;
+  }
+  .fa-5x {
+    font-size: 500%;
+  }
+
+  .fa-a::before {
+    content: '\f110';
+  }
+  .fa-b::before {
+    content: '\f1ce';
+  }
+  .fa-c::before {
+    content: '\f021';
+  }
+  .fa-d::before {
+    content: '\f013';
+  }
+  .fa-e::before {
+    content: '\f110';
+  }
+
+  .fa-rotate {
+    transform: rotate(90deg); /* 无效？ */
+  }
+
+  .hover {
+    display: flex; /*隐藏会有间隙*/
+    /* flex-direction: row-reverse;
+    justify-content: flex-end; */
+  }
+  .fa-hover::before {
+    content: '\f006';
+  }
+  .fa-hover:hover::before,
+  .fa-hover:hover ~ .fa-hover::before {
+    content: '\f005';
+    color: orange;
+  }
+</style>
+<body>
+  <div>
+    <i class="fa fa-music fa-lg"></i> music
+    <i class="fa fa-camera fa-2x"></i> camera
+    <i class="fa fa-mail fa-3x"></i> mail
+    <i class="fa fa-love fa-4x"></i> love
+    <i class="fa fa-star fa-5x"></i> star
+  </div>
+    
+  <div>
+    <i class="fa fa-mail fa-lg"></i> lg
+    <i class="fa fa-mail fa-2x"></i> 2x
+    <i class="fa fa-mail fa-3x"></i> 3x
+    <i class="fa fa-mail fa-4x"></i> 4x
+    <i class="fa fa-mail fa-5x"></i> 5x
+  </div>
+  <br>
+  <div>
+    <i class="fa fa-a fa-3x fa-rotate"></i>
+    <i class="fa fa-b fa-3x fa-rotate"></i>
+    <i class="fa fa-c fa-3x fa-rotate"></i>
+    <i class="fa fa-d fa-3x fa-rotate"></i>
+    <i class="fa fa-e fa-3x fa-rotate"></i>
+  </div>
+  <br>
+  <div class="hover">
+    <span class="fa fa-hover fa-3x" style="order: 5;"></span>
+    <span class="fa fa-hover fa-3x" style="order: 4;"></span>
+    <span class="fa fa-hover fa-3x" style="order: 3;"></span>
+    <span class="fa fa-hover fa-3x" style="order: 2;"></span>
+    <span class="fa fa-hover fa-3x" style="order: 1;"></span>
+  </div>
+</body>
+</html>

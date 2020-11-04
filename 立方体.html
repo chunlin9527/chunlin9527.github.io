@@ -1,0 +1,79 @@
+<style>
+  section:hover {
+    transform: perspective(300px) rotateX(0deg) rotateY(360deg);
+  }
+  section {
+    width: 500px;
+    height: 300px;
+    xbackground-color: tan;
+    xdisplay: flex;
+    xjustify-content: center;
+    xalign-items: center;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: demo 5s linear infinite;
+    xperspective: 100px;
+  }
+  
+  div {
+    width: 100px;
+    height: 100px;
+    opacity: .5;
+    font-size: 48px;
+    line-height: 100px;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+  
+  div.a {
+    background-color: red;
+    transform: rotateX(90deg) translateZ(50px);
+  }
+  div.b {
+    background-color: orange;
+    transform: rotateX(-90deg) translateZ(50px);
+  }
+  div.c {
+    background-color: green;
+    transform: rotateY(0deg) translateZ(50px);
+  }
+  div.d {
+    background-color: #008c8c;
+    transform: rotateY(-180deg) translateZ(50px);
+  }
+  div.e {
+    background-color: blue;
+    transform: rotateY(90deg) translateZ(50px);
+  }
+  div.f {
+    background-color: purple;
+    transform: rotateY(-90deg) translateZ(50px);
+  }
+
+  @keyframes demo {
+    from {
+      transform: rotateX(0deg) rotateY(0deg);
+    }
+    to {
+      transform: rotateX(360deg) rotateY(720deg);
+    }
+  }
+
+  section:hover {
+    animation-play-state: paused;
+  }
+</style>
+
+<section>
+    <div class="a">1</div>
+    <div class="b">2</div>
+    <div class="c">3</div>
+    <div class="d">4</div>
+    <div class="e">5</div>
+    <div class="f">6</div>
+</section>

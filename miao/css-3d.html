@@ -1,0 +1,70 @@
+<style>
+    section {
+        width: 300px;
+        height: 300px;
+        background-color: #008c8c;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+    @keyframes S {
+        from {
+            transform: rotate(0);
+          }
+        to {
+            transform: rotate(360deg);
+          }
+    }
+    .a {
+        width: 300px;
+        height: 50px;
+        xbackground-color: #fff;
+        animation-name: S;
+        animation-duration: 3s;
+        animation-iteration-count:infinite;
+        animation-timing-function: linear;
+    }
+    .b {
+        width: 50px;
+        height: 50px;
+        background-color: #fff;
+        xborder-radius: 50%;
+        animation: S 3s infinite linear reverse;
+        position: relative;
+    }
+
+    @keyframes sin {
+        from {
+            margin-left: -150px;
+        }
+        to {
+            margin-left: 150px;
+        }
+    }
+    @keyframes cos {
+        from {
+            margin-top: -150px;
+        }
+        to {
+            margin-top: 150px;
+        }
+    }
+    .c {
+        width: 50px;
+        height: 50px;
+        background-color: #fff;
+        animation: sin 1s cubic-bezier(.4,0,.6,1) infinite alternate, cos 1s .5s cubic-bezier(.4,0,.6,1) infinite alternate;
+    }
+</style>
+
+<section>
+    <div class="a">
+        <div class="b">
+    </div>
+    </div>
+</section>
+
+<section>
+    <div class="c"></div>
+    </div>
+</section>

@@ -1,0 +1,430 @@
+<meta charset="utf-8">
+
+<!-- NOI / 1.3编程基础之算术表达式与顺序执行 -->
+
+<script type="basic" id="ch0103/01">
+    var a = Number(prompt('请输入整数a'))
+    var b = Number(prompt('请输入整数b'))
+    var c = a + b
+    console.log(c)
+</script>
+
+<script type="basic" id="ch0103/02">
+    var a = Number(prompt('请输入整数a'))
+    var b = Number(prompt('请输入整数b'))
+    var c = Number(prompt('请输入整数c'))
+    var d = (a + b) * c
+    console.log(d)
+</script>
+
+<script type="basic" id="ch0103/03">
+    var a = Number(prompt('a'))
+    var b = Number(prompt('b'))
+    var c = Number(prompt('c'))
+    var d = (a + b) / c
+    console.log(Math.floor(d))
+</script>
+
+<script type="basic" id="ch0103/04">
+    var a = Number(prompt('a'))
+    var b = Number(prompt('b'))
+    var c = a / b
+    var d = a % b
+    console.log(parseInt(c))
+    console.log(d)
+</script>
+
+<script type="basic" id="ch0103/05">
+    var a = Number(prompt('分子a'))
+    var b = Number(prompt('分母b'))
+    var c = a / b
+    console.log(c.toFixed(9))
+</script>
+
+<script type="basic" id="ch0103/06">
+    var a = prompt('确诊数')
+    var b = prompt('死亡数')
+    var c = b / a * 100
+    console.log(c.toFixed(3) + '%')    /* 添加百分号 */
+</script>
+
+<script type="basic" id="ch0103/07">
+    var a = Number(prompt('a'))
+    var b = Number(prompt('b'))
+    var c = Number(prompt('c'))
+    var d = Number(prompt('d'))
+    var x = Number(prompt('x'))
+    var y = a * x ** 3 + b * x ** 2 + c * x + d
+    console.log(y.toFixed(7))    /* 不带Number会报错 */
+</script>
+
+<script type="basic" id="ch0103/08">
+    var a = 5
+    var f = prompt('华氏摄度')
+    var c = 5 * (f - 32) / 9
+    console.log(c.toFixed(5))
+</script>
+
+<script type="basic" id="ch0103/09">
+    var r = Number(prompt('圆的半径'))
+    var d = r * 2
+    var pi = 3.14159
+    var c = pi * d
+    var s = pi * r * r
+    console.log(d.toFixed(4), c.toFixed(4), s.toFixed(4))
+</script>
+
+<script type="basic" id="ch0103/10">
+    var r1 = prompt('电阻r1')
+    var r2 = prompt('电阻r2')
+    var R = 1 / (1 / r1 + 1 / r2)
+    console.log(R.toFixed(2))
+</script>
+
+<script type="basic" id="ch0103/11">
+    var a = Number(prompt('a'))
+    var b = Number(prompt('b'))
+    var c = a % b
+    console.log(c.toFixed(4))
+</script>  
+
+<script type="basic" id="ch0103/12">
+    var r = prompt('球体半径')
+    var pi = 3.14
+    var v = 4 / 3 * pi * r * r * r
+    console.log(v.toFixed(2))
+</script>
+
+<script type="basic" id="ch0103/13">
+    var n = prompt('一个三位数')
+    var g = n % 10
+    var o = ((n % 100) - g) / 10
+    var d = Math.floor(n / 100)
+    var n = "" + g + o + d    /* 利用字符串去空格 */
+    console.log(n)
+</script>
+
+<script type="basic" id="ch0103/14">
+    var pi = 3.14159
+    var h = prompt('桶深度')
+    var r = prompt('底面半径')
+    var v = pi * r * r * h
+    var n = 20 * 1000 / v
+    console.log(Math.ceil(n))
+</script>
+
+<script type="basic" id="ch0103/15">
+    var n = prompt('苹果总数量')
+    var x = prompt('虫子吃一个苹果时间')
+    var y = prompt('已经过时间')
+    var z = n - (y / x)
+    console.log(Math.floor(z))
+</script>
+
+<script type="basic" id="ch0103/16">
+    var xa = prompt('a横坐标')
+    var ya = prompt('a纵坐标')
+    var xb = prompt('b横坐标')
+    var yb = prompt('b纵坐标')
+    var l = Math.sqrt((xb - xa) ** 2 + (yb - ya) ** 2)
+    console.log(l.toFixed(3))
+</script>
+
+<script type="basic" id="ch0103/17">
+    var x1 = prompt('坐标x1')
+    var y1 = prompt('坐标y1')
+    var x2 = prompt('坐标x2')
+    var y2 = prompt('坐标y2')
+    var x3 = prompt('坐标x3')
+    var y3 = prompt('坐标y3')
+    var a = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2)
+    var b = Math.sqrt((x3 - x2) ** 2 + (y3 - y2) ** 2)
+    var c = Math.sqrt((x3 - x1) ** 2 + (y3 - y1) ** 2)
+    var p = (a + b + c) / 2
+    var s = Math.sqrt(p * (p - a) * (p - b) * (p - c))
+    console.log(s.toFixed(2))
+</script>
+
+<script type="basic" id="ch0103/18">
+    var a1 = prompt('等差数列第1项')
+    var a2 = prompt('等差数列第2项')
+    var n = prompt('第n项')
+    var b = a1 + (a2 - a1) * (n - 1)
+    console.log(b)
+</script>
+
+<script type="basic" id="ch0103/19">
+    var a = prompt('正整数a')
+    var b = prompt('正整数b')
+    var c = a * b
+    console.log(c)
+</script>
+
+<script type="basic" id="ch0103/20">
+    var n = prompt('非负次方数')
+    var s = 2 ** n
+    console.log(s)
+</script>
+
+<!-- NOI / 1.4编程基础之逻辑表达式与条件分支 -->
+
+<script type="baisc" id="ch0104/01">
+    var n = prompt()
+    if (n > 0) {
+        console.log('positive')
+    }   else if (n == 0) {
+        console.log('zero')
+    }   else {
+        console.log('negative')
+    }
+</script>
+
+<script type="basic" id="ch0104/02">
+    var n = prompt()
+    if (n >= 0) {
+        console.log(n)
+    }   else {
+        console.log(-n)      /* 怎么保留小数点 */
+    }
+</script>
+
+<script type="basic" id="ch0104/03">
+    var n = prompt('请输入正整数')
+    if (n % 2 == 1) {
+        console.log('odd')
+    }   else if (n % 2 == 0) {
+        console.log('even')
+    }
+</script>
+ 
+<script type="baisc" id="ch0104/04">
+    var char = prompt('任意输入一个字符')
+    if (char == 'a' || char == 'c' || char == 'e' || char == 'g' || char == 'i' || char == 'k' || char == 'm' || char == 'o' || char == 'q' || char == 's' || char == 'u' || char == 'w' || char == 'y') {
+        console.log('YES') 
+    }   else {
+    console.log('NO')
+    }
+</script>
+
+<script type="basic" id="ch0104/05">
+    var x = prompt('整数x')
+    var y = prompt('整数y')
+    if (x > y) {
+        console.log('>')
+    }   else if (x == y) {
+        console.log('=')
+    }   else {
+        console.log('<')
+    }
+</script>
+
+<script type="basic" id="ch0104/06">
+    var n = prompt()
+    if (n >= 10 && n <= 99) {
+        console.log('1')
+    }   else {
+        console.log('0')
+    }
+</script>
+
+<script type="basic" id="ch0104/07">
+    var x = prompt('幸运')
+    var y = prompt('鼓励')
+    if (x >= 10 || y >= 20) {
+        console.log('1')
+    }   else {
+        console.log('0')
+    }
+</script>
+
+<script type="basic" id="ch0104/08">
+    var n = prompt('整数n')
+    if (n % 3 == 0 && n % 5 == 0) {
+        console.log('YES')
+    }   else {
+        console.log('NO')
+    }
+</script>
+
+<script type="basic id="ch0104/09">
+    var n = prompt('输入一个整数')
+    if (n % 3 == 0 && n % 5 ==0 && n % 7 ==0) {
+        console.log('357')
+    }   else if (n % 3 == 0 && n % 5 == 0) {
+        console.log('35')
+    }   else if (n % 3 == 0 && n % 7 ==0) {
+        console.log('37')
+    }   else if (n % 5 == 0 && n % 7 ==0) {
+        console.log('57')
+    }   else if (n % 3 == 0) {
+        console.log('3')
+    }   else if (n % 5 == 0) {
+        console.log('5')
+    }   else if (n % 7 ==0) {
+        console.log('7')
+    }
+</script>
+
+<script type="basic" id="ch0104/10">
+    var x = prompt('语文')
+    var y = prompt('数学')
+    if (x < 60 && y >= 60 || x >= 60 && y < 60) {
+        console.log('1')
+    }   else {
+        console.log('0')
+    }
+</script>
+
+<script type="basic" id="ch0104/11">
+    var n = prompt("星期几")
+    if (n == 1 || n == 3 || n == 5) {
+        console.log('NO')
+    }   else {
+        console.log('YES')
+    }
+</script>
+
+<script type="basic" id="ch0104/12">
+    var l = prompt('办事距离')
+    t1 = l / 1.2
+    t2 = l / 3 + 27 + 23
+    if (t1 < t2) {
+        console.log('Walk')
+    }   else if (t1 == t2) {
+        console.log('All')
+    }   else {
+        console.log('Bike')
+    }
+</script>
+
+<script type="basic" id="ch0104/13">
+    var n = prompt('输入n')
+    var x = -n + 2.5
+    var y = 2 - 1.5 * (x - 3) * (x -3)
+    var z = x / 2 - 1.5
+    if (x >= 0 && x < 5) {
+        console.log(x)
+    }   else if (x < 10) {
+        console.log(y)
+    }   else if (x < 20) {
+        console.log(z)
+    }
+</script>
+
+<script type="basic" id="ch0104/14">
+    var w = prompt('重量')
+    var s = prompt('是否加急')
+    var a = 8 
+    var b = 8 + 5
+    var c = 8 + Math.ceil((w - 1000) / 500) * 4 
+    var d = 8 + Math.ceil((w - 1000) / 500) * 4 + 5
+
+    if (w <= 1000 && s == 'n') {
+        console.log(a)
+    }   else if (w <= 1000 && s == 'y') {
+        console.log(b)
+    }   else if (w > 1000 && s == 'n') {
+        console.log(c)
+    }   else if (w > 1000 && s == 'y') {
+        console.log(d)
+    }
+</script>
+
+<script type="basic" id="ch0104/15">
+    var a = prompt('数字a')
+    var b = prompt('数字b')
+    var c = prompt('数字c')
+    var max = a
+    if (b > a) {
+        max = b
+    }   else if (c > a) {
+        max = c
+    }   
+
+    <!-- if (a > b && a > c) {
+        console.log(a)
+    }   else if (b > c) {
+        console.log(b)
+    }   else {
+        console.log(c)
+    } -->
+</script>
+
+<script type="baisc" id="ch0104/16">
+    var a = Number(prompt('边a'))    /* 加Number */
+    var b = Number(prompt('边b'))
+    var c = Number(prompt('边c'))
+    if (a + b > c && a + c > b && b + c > a) {
+        console.log('yes')
+    }   else {
+        console.log('no')
+    }
+</script>
+
+<script type="basic" id="ch0104/17">
+    var n = Number(prompt('年数'))
+    if ((n % 4 == 0 && n % 100 !== 0) || n % 400 == 0) {
+        console.log('Y')
+    }   else {
+        console.log('N')
+    }
+</script>
+
+<script type="baisc" id="ch0104/18">
+    var x = prompt('x')
+    var y = prompt('y')
+    if (x >= -1 && x <= 1 && y >= -1 && y <= 1) {
+        console.log('yes')
+    }   else {
+        console.log('no')
+    }
+</script>
+
+<script type="baisc" id="ch0104/19">
+var a = Number(prompt('a'))
+var b = Number(prompt('b'))
+var c = prompt('运算符')
+if (c == '+') {
+    console.log(a + b)
+}   else if (c == '-') {
+    console.log(a - b)
+}   else if (c == '*') {
+    console.log(a * b)
+}   else if (c == '/' && b != 0) {
+    console.log(a / b)
+}   else if (c == '/' && b == 0) {
+    console.log('Divided by zero!')
+}   else {
+    console.log('Invalid operator!')
+}
+</script>
+
+<script type="baisc" id="ch0104/20">
+    var a = Number(prompt('a'))
+    var b = Number(prompt('b'))
+    var c = Number(prompt('c'))
+    var delta = b * b - 4 * a * c
+    if (delta == 0) {
+        var x = -b / (2 * a)
+        console.log('x1=x2=' + x)
+    }   else if (delta > 0) {
+        var sqrt_delta = math.sqrt(delta)
+        var x1 = (-b + sqrt_delta) / (2 * a)
+        var x2 = (-b - sqrt_delta) / (2 * a)
+        console,log('x1=' + x1 + ';x2=' + x2)
+    }   else {
+        var x1r = - b / (2 * a)
+        var x1i = Math.sqrt(-delta) / (2 * a)
+        var x2r = - b / (2 * a)
+        var x2i = -Math.sqrt(-delta) / (2 * a)
+    }   if (x1i < 0) {
+        var x1 = '' + x1r + x1i + 'i'
+    }   else {
+        var x1 = x1r + '+' x1i + 'i'
+    }   
+    if (x2i < 0) {
+        var x2 = '' + x2r + x2i + 'i'
+    }   else {
+        var x2 =x2r + '+' + x2i + 'i'
+    }   console.log(x1 + ';' x2)
+</script>

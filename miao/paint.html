@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>画图</title>
+  <style>
+    canvas {
+      border: 2px solid #f0f;
+      display: block;
+      margin: auto;
+    }
+  </style>
+</head>
+<body>
+  <canvas width="400" height="300"></canvas>
+</body>
+<script>
+  var canvas = document.querySelector('canvas')
+  canvas.style.imageRendering = 'pixelated'
+  var ctx = canvas.getContext('2d')
+
+  function dot(x, y, color = 'black') {
+    x = x | 0
+    y = y | 0
+    ctx.fillStyle = color
+    ctx.fillRect(x, y, 1, 1)
+  }
+
+  function line(x1, y1, x2, y2) {
+    ctx.strokeStyle = 'black'
+    ctx.moveTo(x1, y1)
+    ctx.lineTo(x2, y2)
+    ctx.stroke()
+  }
+  /**
+   * YOUR TASK
+  画图的题：
+  画一条实线
+  画一条一个实点一个空点的虚线
+  画一条两个实点两个空点的虚线
+  画一条三个实点两个空点的虚线
+  画一条45度的斜线
+  画一条30度的斜线（选做）
+  在四个角画分别画一条45度的斜线以让画面看起来像一个相框
+  画一条跨越画布左上角和右下角的对角线
+  画一个空心矩形
+  画一个实心矩形
+  画一个rgb色彩空间的某一面
+  画一个空心的圆
+  画一个实心的圆
+  画一个大小合适的sin(x)的图像
+   */
+</script>
+<script>
+  // 画一条实线
+  for (var x = 20; x < 380; x++) {
+      dot(x, 30, '#008c8c')
+    }
+  // 画一条一个实点一个空点的虚线
+  for (var x = 20; x < 380; x++) {
+    if (x % 2 == 0) {
+      dot(x, 50, '#f40')
+    }
+  }
+  // 画一条两个实点两个空点的虚线
+  for (var x = 20; x < 380; x++) {
+    if (x % 4 < 2) {
+      dot(x, 70, '#f40') 
+    }
+  }
+  // 画一条三个实点两个空点的虚线
+  for (var x = 20; x < 380; x++) {
+    if (x % 5 < 3) {
+      dot(x, 90, '#f40') 
+    }
+  }
+  // 画一条45度的斜线
+  for (var x = 0; x < 300; x++) {
+    var y = x
+    dot(x, y, 'blue')
+  }
+  // 画一条30度的斜线（选做）
+  for (var x = 0; x < 400; x++) {
+    var y = x / Math.sqrt(3)
+    dot(x, y, '#000')
+  }
+  // 在四个角画分别画一条45度的斜线以让画面看起来像一个相框
+  for (var x = 0; x < 30; x++) {
+    dot(x, 30 - x, 'tan')
+    dot(400 - x, 30 - x, 'tan')
+    dot(370 + x, 300 - x, 'tan')
+    dot(x, 270 + x, 'tan')
+  }
+  // 画一条跨越画布左上角和右下角的对角线
+  for (var x = 0; x < 400; x++) {
+    var y = x * (300 / 400)
+    dot(x, y, 'red')
+  }
+  // 画一个空心矩形
+  for (var x = 0; x < 70; x++) {
+    dot(x + 310, 110, 'red')
+    dot(x + 310, 150, 'red')
+  }
+  for (var y = 0; y < 40; y++) {
+    dot(310, y + 110, 'red')
+    dot(380, y + 110, 'red')
+  }
+  // 画一个实心矩形
+  for (var x = 0; x < 70; x++) {
+    for (var y = 0; y < 50; y++) {
+      dot(x + 280, y + 30, '#008c8c')
+    }
+  }
+  // 画一个rgb色彩空间的某一面
+  for (var x = 0; x < 255; x++) {
+    for (var y = 0; y < 256; y++) {
+      var color = 'rgb(' + x + ',' + y  + ',255)'
+      dot(x / 3 + 20, y / 3 + 110, color)
+    }
+  }
+  // 画一个空心的圆 
+  // var r = 40
+  // for (var x = -r; x < r; x++) {
+  //   var y = Math.sqrt(r ** 2 - x ** 2)
+  //   dot(x + 60, y + 250, 'blue')
+  //   dot(x + 60, -y + 250, 'blue')
+  // }
+  var r = 40
+  for (x = 0; ; x ++) {
+    var y = Math.sqrt(r ** 2 - x ** 2)
+    if (x > y) {
+      break
+    } else {
+      dot (x + 60, y + 250, 'red')
+      dot (x + 60, -y + 250, 'red')
+      dot (-x + 60, y + 250, 'red')
+      dot (-x + 60, -y + 250, 'red')
+      dot (y + 60, x + 250, 'red')
+      dot (y + 60, -x + 250, 'red')
+      dot (-y + 60, x + 250, 'red')
+      dot (-y + 60, -x + 250, 'red')
+    }
+  } 
+  // 画一个实心的圆
+  var r = 40
+  for (x = -r; x < r; x++) {
+    for (y = 0; y < r; y++) {
+      var z = Math.sqrt(r ** 2 - x ** 2)
+      if (z < y) {
+        break
+      } else {
+        dot(x + 160, y + 250, 'orange')
+        dot(x + 160, -y + 250, 'orange')
+      }
+    }
+  }
+</script>
+</html>

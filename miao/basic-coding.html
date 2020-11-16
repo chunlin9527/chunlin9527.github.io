@@ -246,7 +246,7 @@
     }
 </script>
 
-<script type="basic id="ch0104/09">
+<script type="basic" id="ch0104/09">
     var n = prompt('输入一个整数')
     if (n % 3 == 0 && n % 5 ==0 && n % 7 ==0) {
         console.log('357')
@@ -381,22 +381,22 @@
 </script>
 
 <script type="baisc" id="ch0104/19">
-var a = Number(prompt('a'))
-var b = Number(prompt('b'))
-var c = prompt('运算符')
-if (c == '+') {
-    console.log(a + b)
-}   else if (c == '-') {
-    console.log(a - b)
-}   else if (c == '*') {
-    console.log(a * b)
-}   else if (c == '/' && b != 0) {
-    console.log(a / b)
-}   else if (c == '/' && b == 0) {
-    console.log('Divided by zero!')
-}   else {
-    console.log('Invalid operator!')
-}
+    var a = Number(prompt('a'))
+    var b = Number(prompt('b'))
+    var c = prompt('运算符')
+    if (c == '+') {
+        console.log(a + b)
+    }   else if (c == '-') {
+        console.log(a - b)
+    }   else if (c == '*') {
+        console.log(a * b)
+    }   else if (c == '/' && b != 0) {
+        console.log(a / b)
+    }   else if (c == '/' && b == 0) {
+        console.log('Divided by zero!')
+    }   else {
+        console.log('Invalid operator!')
+    }
 </script>
 
 <script type="baisc" id="ch0104/20">
@@ -428,3 +428,714 @@ if (c == '+') {
         var x2 =x2r + '+' + x2i + 'i'
     }   console.log(x1 + ';' x2)
 </script>
+
+<!-- NOI / 1.5编程基础之循环控制 -->
+
+<script type="w" id="ch0105/01">
+    var n = Number(prompt('人数'))
+    var i = 0
+    var sum = 0
+    while (i < n) {
+        var age = Number(prompt('请输入年龄'))
+        sum += age
+        i ++
+    }
+    console.log((sum / n).toFixed(2))
+</script>
+
+<script type="w" id="ch0105/02">
+    var i = 0
+    var sum = 0
+    while (i < 12) {
+        var r = Number(prompt())
+        sum += r
+        i ++
+    }
+    console.log('$' + (sum / 12).toFixed(2))
+</script>
+
+<script type="w" id="ch0105/03">
+    var n = prompt('样本容量')
+    var i = 0
+    var sum = 0
+    while (i < n) {
+        var count = Number(prompt('样本数据'))
+        sum += count
+        i ++ 
+    }
+    console.log((sum / n).toFixed(4))
+</script>
+
+<script type="w" id="ch0105/04">
+    var n = Number(prompt())
+    var i = 0
+    while (i < n) {
+        var count = Number(prompt('数值'))
+        var sum = sum + count
+        i ++
+    }
+    console.log(sum)
+    console.log((sum / n).toFixed(5))
+</script>
+
+<script type="w" id="ch0105/05">
+    var n = Number(prompt('考试人数'))
+    var i = 0
+    var max = 0
+    while (i < n) {
+        var score = Number(prompt('成绩'))
+        if (score > max) {
+            max = score
+        }
+        i ++
+    }   
+    console.log(max)
+</script>
+
+<script type="w" id="ch0105/06">
+    var n = Number(prompt())
+    var i = 0
+    var max = -Infinity
+    var min = Infinity
+    while (i < n) {
+        var count = Number(prompt('非负整数'))
+        if (count > max) {
+            max = count
+        }
+        if (count < min) {
+            min = count
+        }
+        i ++
+    }
+    console.log(max - min)
+</script>
+
+<script type="w" id="ch0105/07">
+    var n = Number(prompt('参加天数'))
+    var i = 0
+    var x = 0
+    var y = 0
+    var z = 0
+    while (i < n) {
+        var a = Number(prompt('金牌数'))
+        var b = Number(prompt('银牌数'))
+        var c = Number(prompt('铜牌数'))
+        x = a + x
+        y = b + y
+        z = c + z
+        i ++
+    }
+    console.log(x, y, z, x + y + z)
+
+</script>
+
+<script type="w" id="ch0105/08">
+    var n = Number(prompt('几边形'))
+    var t = (n - 2) * 180
+    var sum = 0
+    while (n > 1) {
+        var deg = Number(prompt('内角度数'))
+        sum += deg
+        n --
+    }
+    console.log(t - sum)
+</script>
+
+<script type="w" id="ch0105/09">
+    var m = Number(prompt('m'))
+    var n = Number(prompt('n'))
+    var c = m
+    var sum = 0
+    while (c <= n) {
+        if (c % 2 == 1) {
+            sum += c
+        }
+        c ++
+    }
+    console.log(sum)
+</script>
+
+<script type="w" id="ch0105/10">
+    var m = Number(prompt('m'))
+    var n = Number(prompt('n'))
+    var sum = 0
+    while (m <= n) {
+        if (m % 17 == 0) {
+            sum += m
+        }
+        m ++
+    }
+    console.log(sum)
+</script>
+
+<script type="w" id="ch0105/11">
+    var k = Number(prompt('整数数量'))
+    var i = 0
+    var x = 0
+    var y = 0
+    var z = 0
+    while (i < k) {
+        var n = Number(prompt('正整数'))
+        if (n == 1 ) {
+            x ++
+        }   else if (n == 5) {
+            y ++
+        }   else if (n == 10) {
+            z ++
+        }
+        i ++
+    }
+    console.log(x, y, z)
+</script>
+
+<script type="w" id="ch0105/12">
+    var n = Number(prompt('整数个数'))
+    var m = Number(prompt('指定相同数字'))
+    var i = 0
+    var sum = 0
+    while (i < n) {
+        var w = Number(prompt('输入数字'))
+        if (w == m) {
+            sum ++
+        }
+        i ++
+    }
+    console.log(sum)
+</script>
+
+<script type="w" id="ch0105/13">
+    var a = Number(prompt('整数a'))
+    var n = Number(prompt('次方n'))
+    var i = 0
+    var mul = 1
+    while (i < n) {
+        mul = mul * a
+        i ++
+    }
+    console.log(mul)
+</script>
+
+<script type="w" id="ch0105/14">
+    var x = Number(prompt('人口基数'))
+    var n = Number(prompt('年数'))
+    var i = 0
+    while (i < n) {
+        x = x * (1 + 0.001)
+        i ++
+    }
+    console.log(x.toFixed(4))
+</script>
+
+<script type="w" id="ch0105/15">
+    var r = Number(prompt('复合年利率'))
+    var m = Number(prompt('总值'))
+    var y = Number(prompt('投资年份'))
+    var i = 0
+    while (i < y) {
+        m = m * (1 + r / 100)
+        i ++
+    }
+    console.log(Math.floor(m))
+</script>
+
+<script type="w" id="ch0105/16">
+    var price = 200
+    var k = Number(prompt('房价增长率'))
+    var n = Number(prompt('年薪'))
+    var i = 1
+    while (i < 20) {
+        price = price * (1 + k / 100)    //第二年房价开始
+        var sum = n * (i + 1)    //总薪水
+        i ++
+        if (sum >= price) {
+            break
+        }
+    }
+    console.log(i)
+    
+</script>
+
+<script type="w" id="ch0105/17">
+    var first = 1
+    var second = 1
+    var i = 0
+    var k = Number(prompt('正整数'))
+    if (k < 3) {
+        console.log(1)
+    }   else {
+        while (i < (k - 2)) {
+            var third = first + second
+            first = second
+            second = third
+            i ++ 
+        }
+        console.log(third)
+    }
+</script>
+
+<script type="w" id="ch0105/18">
+    var n = Number(prompt('病例行数'))
+    var a = Number(prompt('鸡尾酒疗法总病例数'))
+    var b = Number(prompt('鸡尾酒疗法有效病例数'))
+    var x = b / a
+    var i = 0
+    while (i < (n - 1)) {
+        var c = Number(prompt('改进疗法总病例数'))
+        var d = Number(prompt('改进疗法有效病例数'))
+        var y = d / c 
+        if ((y - x) > 0.05) {
+            console.log('better')
+        }   else if ((x - y) > 0.05) {
+            console.log('worse')
+        }   else {
+            console.log('same')
+        }
+        i ++
+    }
+</script>
+
+<script type="w" id="ch0105/19">
+    var n = Number(prompt('屋顶数'))
+    var i = 0
+    var t = 0    // 总时间
+    var d = 0    // 距离
+    while (i < n) {
+        var x = Number(prompt('x坐标'))
+        var y = Number(prompt('y坐标'))
+        var number = Number(prompt('人数'))
+        d = d + Math.sqrt(x ** 2 + y ** 2)
+        t = d / 50 * 2 + number * (1 + 0.5)
+        i ++
+    }
+    console.log(Math.ceil(t))
+</script>
+
+<script type="w" id="ch0105/20">
+    var n = Number(prompt('初始高度'))
+    var sum = n
+    for (i = 2; ; i++) {
+        n = n / 2
+        sum = sum + n * 2
+        
+        if (i == 10) {
+            console.log(sum, n / 2)
+            break
+        }
+    }
+</script>
+
+<script type="w" id="ch0105/21">
+    var n = Number(prompt('任意一个正整数'))
+    var a = 0
+    var b = 0
+    for (var i = 0; ; i++) {
+        if (n == 1) {
+            console.log('End')
+            break
+        }   else if (n % 2 == 1) {
+            a = n * 3 + 1
+            console.log(n + '*3+1=' + a)
+            n = a
+        }   else if (n % 2 == 0) {
+            b = n / 2
+            console.log(n + '/2=' + b)
+            n = b
+        }
+    }
+</script>
+
+<script type="w" id="ch0105/22">
+    var a = 300
+    var b = 0    //每月剩余
+    var sum = 0    //全部存的钱
+    for (var i = 1; i <= 12; i++) {
+        var n = Number(prompt('预算'))
+        b = a - n    
+        if (b >= 100) {
+            var c = b % 100    //存完后余下的钱
+            var d = b - c    //存的钱
+            sum += d
+            a = 300 + c  
+        }   else if (b >= 0 && b < 100) {
+            a = 300 + b
+        }   else {
+            console.log(-i)
+            break
+        }
+    }   
+    console.log(sum * (1 + 0.2) + c)
+
+</script>
+
+<script type="w" id="ch0105/23">
+    var m = Number(prompt('药品总量'))
+    var n = Number(prompt('取药人数'))
+    var sum = 0    //未取药人数    
+    for (i = 0; i < n; i++) {
+        var x = Number(prompt('每个病人希望取走的药品数量'))
+        if (x <= m) {
+            var y = m - x    //剩余药品数量
+            m = y
+        }   else {
+            sum ++
+        }
+    }
+    console.log(sum)
+</script>
+
+<script type="w" id="ch0105/24">
+    var n = Number(prompt('测量血压次数'))
+    var sum = 0    //连续次数 
+    var max = 0    //最大连续次数
+    for (i = 0; i < n; i++) {
+        var x = Number(prompt('收缩压'))
+        var y = Number(prompt('舒张压'))
+        if (x < 90 || x > 140 || y < 60 || y > 90) {
+            sum = 0
+        }   else if (x >= 90 && x <= 140 && y >= 60 && y <= 90) {
+                sum ++ 
+                if (sum > max) {
+                max = sum
+                }
+            }
+    }
+    console.log(max)
+</script>
+
+<script type="w" id="ch0105/25">
+    for (n = 1; n < 1000; n++) {    //n不能等于0
+        var a1 = n % 7    //7进制个位数
+        var a2 = (n - a1) / 7 % 7   //7进制七位数
+        var a3 = (n - a1 -a2 * 7) / 49 % 7   //7进制四十九位数
+        var b1 = n % 9    //9进制个位数
+        var b2 = (n - b1) / 9 % 9    //9进制九位数
+        var b3 = (n - b1 - b2 * 9) / 81 % 9   //9进制八十一位数
+        if (a1 == b3 && a2 == b2 && a3 == b1) {
+            console.log(n, '' + a3 + a2 + a1, '' + b3 + b2 + b1)
+            break
+        }
+    }
+</script>
+
+<script type="w" id="ch0105/26">
+    var n = Number(prompt('四位数的个数'))
+    var sum = 0    //满足条件四位数数量
+    for (i = 0; i < n; i++) {
+        var m = Number(prompt('四位数'))
+        var a = m % 10    //个位数
+        var b = (m % 100 - a) / 10   //十位数
+        var c = (m - b * 10 - a) / 100 % 10    //百位数
+        var d = Math.floor(m / 1000)    //千位数
+        if ((a - d - c -b) > 0) {
+            sum ++
+        }
+    }
+    console.log(sum)
+</script>
+
+<script type="w" id="ch0105/27">
+    var k = Number(prompt('一个整数K'))
+    var Sn = 0
+    for (n = 1; n < 1000000; n++) {
+        Sn += 1 / n
+        if (Sn > k) {
+            console.log(n)
+            break
+        }
+    }
+</script>
+
+<script type="w" id="ch0105/28">
+    var n = Number(prompt('输入一个整数'))
+    for (i = 0; ; i++) {
+        var a = n % 10
+        console.log(a)
+        n = (n - a) / 10
+        if (n == 0) {
+            break
+        }
+    }
+</script>
+
+<script type="w" id="ch0105/29">
+    var n = Number(prompt('整数'))
+    var result = ''
+    for (i = 0; ; i++) {
+        if (n > 0) {
+            var a = n % 10
+            result = result + a
+            n = (n - a) / 10
+            if (n == 0) {
+                console.log(result)
+                break 
+            }
+        }   else if (n < 0) {
+            var b = n % 10
+            result = result + (-b)
+            n = (n - b) / 10
+            if (n == 0) {
+                console.log(-result)
+                break
+            }
+        }   else {
+            console.log(n)
+            break
+        }
+    }
+</script>
+
+<script type="w" id="ch0105/30">
+    var m = Number(prompt('正整数'))
+    var k = 0
+    if (m % 19 == 0) {
+        for (i = 0; ; i++) {
+            var n = m % 10
+            if (n % 3 == 0) {
+                k ++
+            }
+            m = (m - n) / 10
+            if (m == 0) {
+                break
+            }
+        }
+        if (k > 1 && k < 5) {
+            console.log('YES')
+        }   else {
+            console.log('NO')
+        }  
+    }   else {
+        console.log('NO')
+    }
+</script>
+
+<script type="w" id="ch0105/31"></script>
+
+<script type="w" id="ch0105/32">
+    var n = Number(prompt('正整数'))
+    var sum = 0 
+    var p1 = 1
+    var q1 = 2
+    for (i = 0; i < n; i++) {
+        sum += q1 / p1
+        q1 = q1 + p1
+        p1 = q1 - p1
+    }
+    console.log(sum.toFixed(4))
+</script>
+
+<script type="w" id="ch0105/33">
+    var n = Number(prompt('正整数'))
+    var sum = 0
+    for (i = 1; i <= n; i++) {
+        var a = (-1) ** (i - 1)    //分子
+        var b = i    //分母
+        sum += a / b
+    }
+    console.log(sum.toFixed(4))
+</script>
+
+<script type="w" id="ch0105/34">
+    var n = Number(prompt('正整数n'))
+    var m = 1    //初始'1'
+    var sum = 0
+    for (i = 0; i < n; i++) {
+        m = m * (i + 1)
+        sum += m
+    }
+    console.log(sum)
+</script>   
+
+<script type="w" id="ch0105/35">
+    var n = Number(prompt('大于1的正整数'))
+    var m = 1    //初始分母
+    var sum = 1
+    for (i = 0; i < n; i++) {
+        m = m * (i + 1)
+        sum += 1 / m
+    }
+    console.log(sum.toFixed(10))
+</script>
+
+<script type="w" id="ch0105/36">
+    var x = Number(prompt('单精度浮点数'))
+    var n = Number(prompt('正整数'))
+    var sum = 1
+    for (i = 0; i < n; i++) {
+        var y = i + 1    //次方
+        sum += x ** y
+    }
+    console.log(sum.toFixed(2))
+</script>
+
+<script type="w" id="ch0105/37">
+    var M = 5    //体力最大值
+    var m = Number(prompt('体力值'))
+    var n = Number(prompt('战斗力'))
+    var x = Number(prompt('能量元素'))
+    for (i = 0; ; i++) {
+        var a = (m - m % n) / n    //每次战斗增加的战斗力
+        m = m % n    //剩余体力
+        n += a    //当前战斗力
+        m += n    //补充后的体力
+        if (m > M) {
+            m = 5
+            if (n > M) {
+                break
+            }
+        }
+        x --    //能量元素减1
+        if (x < 0) {
+            break
+        }
+    }
+    console.log(n)
+</script>
+
+<script type="" id="ch0105/38"></script>
+
+<script type="w" id="ch0105/39">
+    var n = Number(prompt('小于100的正整数'))
+    var sum = 0
+    for(i = 1; i <= n; i++) {
+        var m = i
+        var a = m % 10    //个位数
+        var b = (m - a) % 10    //十位数 
+        if (m % 7 != 0 && a != 7 && b != 7) {
+            sum += m ** 2
+        }
+    }
+    console.log(sum)
+</script>
+
+<script type="w" id="ch0105/40">
+    var n = Number(prompt('正整数'))
+    var sum = 1    //总个数
+    for (i = 2; i <= n ; i++) {
+        var m = i
+        for (j = 0; ; j++) {
+            var a = m % 10    //各位数循环计算
+            if (a == 1) {
+                sum ++
+            }
+            m = (m - a) / 10
+            if (m == 0) {
+                break
+            }
+        }
+    }
+    console.log(sum)
+</script>
+
+<script type="w" id="ch0105/41">
+    var l = Number(prompt('小正整数'))
+    var r = Number(prompt('大正整数'))
+    var sum = 0
+    for (i = l; i <= r; i ++) {
+        var m = i 
+        for (j = 0; ; j++) {
+            var a = m % 10    //各位数循环计算
+            if (a == 2) {
+                sum ++
+            }
+            m = (m - a) / 10
+            if (m == 0) {
+                break
+            }
+        }
+    }
+    console.log(sum)
+</script>
+
+<script type="w" id="ch0105/42">
+    var a = Number(prompt('矩形高'))
+    var b = Number(prompt('矩形宽'))
+    var c = '@'
+    var d = Number(prompt('空心0实心1'))
+    var e = a * b    //字符总数量
+    var sum = ''
+    for (i = 0; i < e; i++) {
+        var f = i + 1    //画到第f个字符
+        if (d == 0) {
+            if (f >= b && f <= (e - b)) {
+                if (f % b == 1) {
+                    sum += c
+                }   else if (f % b == 0) {
+                    sum += c + "\n"    //回车
+                }   else {
+                    sum += ' '
+                }
+            }   else {
+                sum += c
+            }
+        }   else if (d == 1) {
+            if (f % 7 == 0) {
+                sum += c + "\n"    //回车
+            }   else {
+                sum += c 
+            }
+        }
+    }
+    console.log(sum)
+</script>
+
+<script type="w" id="ch0105/43">
+    var n = Number(prompt('正整数'))
+    if (n % 2 != 0) {
+        for (i = n; ; i-=2) {
+        var m = (i - 1) / 2    //i肯定是奇数，减1取对半，减少运算量
+        if (m > 1 && n % m == 0) {    //m为较大乘数,并且大于1
+            var flag = false
+            for (j = 2; j < m; j++) {    //去掉第一个和最后一个数，判断m是否为质数
+                if (m % j != 0) {
+                    flag = true
+                }   else {
+                    break
+                }
+            }   
+            var a = n / m    //取较小乘数，判断是否为质数
+            for (k = 2; k < a ; k++) {    //去掉第一个和最后一个数
+                if (a % k != 0) {
+                    flag = true
+                }   else {
+                    break
+                }
+            }  
+            console.log(m)
+            break            
+        }   else if (m == 1) {
+            break
+        }
+    } 
+}
+    
+</script>
+
+<script type="w" id="ch0105/44">
+    var n = Number(prompt('正整数'))
+    var sum = 0
+    var flag = false
+    for (i = 2; i < 10000; i++) {    //去掉1
+        var m = i
+        if (m == 2) {    //m等于2直接判断
+            sum ++
+        }   else if (m % 2 != 0) {    //m(不包括2)肯定是奇数,减少运算量
+            for (j = 2; j < m ; j++) {
+            if (m % j != 0) {    //判断m是否为质数
+                flag = true
+            }   else {
+                flag = false
+                break
+            } 
+        }
+        if (flag == true) {
+            sum ++
+        }
+        if (sum == n) {    //第n个质数
+            console.log(m)
+            break
+        }
+    }         
+}
+</script>
+
+<script type="" id="ch0105/45"></script>

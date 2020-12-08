@@ -92,6 +92,37 @@ var chunlin9527 = {
     },
 
     fromPairs: function fromPairs(pairs) {
-        
-    }
+        var result = {}
+        for (var i = 0; i < pairs.length; i++) {
+            result[pairs[i][0]] = pairs[i][1]
+        }
+        return result
+    },
+
+    head: function head(array) {
+        return array[0]
+    },
+
+    indexOf: function indexOf(array, value, fromIndex) {
+        if (fromIndex < 0) {
+            var lastindex = array.lastIndexOf(value)
+            if (lastindex != -1) {
+                return lastindex
+            }   else {
+                return -1
+            }
+        }
+        for (var i = 0; i < fromIndex; i++) {
+            array[i] = null
+        }
+        var index = array.indexOf(value)
+        if (index == -1) {
+            return -1
+        }
+        return index
+    },
+
+    initial: function initial(array) {
+        return array.slice(0, array.length - 1)
+    },
 }

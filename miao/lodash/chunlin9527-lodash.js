@@ -69,4 +69,29 @@ var chunlin9527 = {
         }
         return array
     },
+
+    flattenDeep: function flattenDeep(array) {
+        for (var i = 0; i < array.length; i++) {
+            if (array[i].length !== undefined) {
+                flattenDeep(this.flatten(array))
+            }  
+        }
+        return array
+    },
+
+    flattenDepth: function flattenDepth(array, depth) {
+        if (depth === undefined) {
+            return this.flatten(array)
+        }   else {
+            for (var i = 0; i < depth; i++) {
+                var result = this.flatten(array)
+                array = result
+            }
+        }
+        return result
+    },
+
+    fromPairs: function fromPairs(pairs) {
+        
+    }
 }

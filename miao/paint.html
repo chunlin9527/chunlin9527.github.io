@@ -12,7 +12,7 @@
   </style>
 </head>
 <body>
-  <canvas width="400" height="300"></canvas>
+  <canvas width="400" height="500"></canvas>
 </body>
 <script>
   var canvas = document.querySelector('canvas')
@@ -155,4 +155,20 @@
     }
   }
 </script>
+
+<script src="./lena.js"></script>
+<script>
+  let h = lena.length  // 高
+  for (let i = 0; i < h; i++) {
+    let w  = lena[i].length  // 宽
+    for (let j = 0; j < w; j++) {
+      let r = lena[i][j][0]
+      let g = lena[i][j][1]
+      let b = lena[i][j][2]
+      let color = 'rgb(' + r + ',' + g + ',' + b + ')'
+      dot(j + 220, i + 115, color)
+    }
+  }
+</script>
+
 </html>

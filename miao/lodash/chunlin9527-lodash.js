@@ -1,12 +1,72 @@
 var chunlin9527 = {
-    compact: function compact(ary) {  // 函数表达式的名字相当于函数内部的变量
+    chunk: function chunk(array, size) {
         var result = []
-        compact()
-        for (var i = 0; i < ary.length; i++) {
-            if (a[i]) {
-                result.push(ary[i])
+        var count = 0
+        for (var i = 0; i < array.length; i++) {
+            result[i] = [] 
+            for (var j = 0; j < size; j++) {
+                result[i].push(array[count]) 
+                count++
+                if (count == array.length) {
+                    return result
+                }
             }
         }
-        return result
-    }
+    },
+
+    compact: function compact(array) {
+        var result = []
+        return result = array.filter(Boolean)
+    },
+
+    drop: function drop(array, n) {
+        n === undefined ? n = 1 : n
+        var result = []
+        return result = array.slice(n)
+    },
+
+    dropRight: function dropRight(array, n) {
+        n === undefined ? n = 1 : n
+        var result = []
+        var m = array.length - n
+        if (m <= 0) {
+            return []
+        }   else {
+            return result = array.slice(0, m)
+        }
+    },
+
+    fill: function fill(array, value, start, end) {
+        start === undefined ? start = 0 : start
+        end === undefined ? end = array.length : end
+        for (var i = start; i < end; i++) {
+            array[i] = value
+        }
+        return array
+    },
+
+    findIndex: function findIndex(array, predicate, fromIndex) {
+
+    },
+
+    findLastIndex: function findLastIndex(array, predicate, fromIndex) {
+
+    },
+
+    flatten: function flatten(array) {
+        var i = 0
+        while (i < array.length) {
+            if (array[i].length !== undefined) {
+                break
+            }
+            i++
+        }
+        var part = array[i]
+        array.splice(i, 1)
+        for (var j = 0; j < part.length; j++) {
+            array.splice(i, 0, part[j])
+            i++
+        }
+        return array
+    },
 }

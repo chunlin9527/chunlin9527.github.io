@@ -139,7 +139,7 @@ var chunlin9527 = {
 
     // 从右到左遍历数组，检索value的索引值
     lastIndexOf: function lastIndexOf(array, value, fromIndex) {
-        if (array.slice(fromIndex).lastIndexOf(value) == -1) {
+        if (array.slice(fromIndex).lastIndexOf(value) == -1 || fromIndex < 0) {
             return -1
         }   else {
             return array.slice(fromIndex).lastIndexOf(value)

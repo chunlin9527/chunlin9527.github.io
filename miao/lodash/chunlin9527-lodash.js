@@ -19,14 +19,12 @@ var chunlin9527 = {
         return result = array.filter(Boolean)
     },
 
-    drop: function drop(array, n) {
-        n === undefined ? n = 1 : n
+    drop: function drop(array, n = 1) {
         var result = []
         return result = array.slice(n)
     },
 
-    dropRight: function dropRight(array, n) {
-        n === undefined ? n = 1 : n
+    dropRight: function dropRight(array, n = 1) {
         var result = []
         var m = array.length - n
         if (m <= 0) {
@@ -36,9 +34,7 @@ var chunlin9527 = {
         }
     },
 
-    fill: function fill(array, value, start, end) {
-        start === undefined ? start = 0 : start
-        end === undefined ? end = array.length : end
+    fill: function fill(array, value, start = 0, end = array.length) {
         for (var i = start; i < end; i++) {
             array[i] = value
         }
@@ -79,14 +75,10 @@ var chunlin9527 = {
         return array
     },
 
-    flattenDepth: function flattenDepth(array, depth) {
-        if (depth === undefined) {
-            return this.flatten(array)
-        }   else {
-            for (var i = 0; i < depth; i++) {
-                var result = this.flatten(array)
-                array = result
-            }
+    flattenDepth: function flattenDepth(array, depth = 1) {
+        for (var i = 0; i < depth; i++) {
+            var result = this.flatten(array)
+            array = result
         }
         return result
     },
@@ -103,16 +95,15 @@ var chunlin9527 = {
         return array[0]
     },
 
-    indexOf: function indexOf(array, value, fromIndex) {
+    indexOf: function indexOf(array, value, fromIndex = 0) {
         if (fromIndex < 0) {
             var lastIndex = array.lastIndexOf(value)
             if (lastIndex == -1) {
                 return -1
             }   else {
-                return lastIndex
+                return array.indexOf(value)
             }
         }
-        fromIndex === undefined ? fromIndex = 0 : fromIndex
         var index = array.slice(fromIndex).indexOf(value)
         if (index == -1) {
             return -1

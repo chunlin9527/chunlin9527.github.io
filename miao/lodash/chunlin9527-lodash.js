@@ -73,7 +73,7 @@ var chunlin9527 = {
     flattenDeep: function flattenDeep(array) {
         for (var i = 0; i < array.length; i++) {
             if (array[i].length !== undefined) {
-                flattenDeep(this.flatten(array))
+                array = this.flatten(array)
             }  
         }
         return array
@@ -91,7 +91,7 @@ var chunlin9527 = {
         return result
     },
 
-    fromPairs: function fromPairs(pairs) {
+    fromPairs: function fromPairs(pairs) {   
         var result = {}
         for (var i = 0; i < pairs.length; i++) {
             result[pairs[i][0]] = pairs[i][1]
@@ -105,24 +105,35 @@ var chunlin9527 = {
 
     indexOf: function indexOf(array, value, fromIndex) {
         if (fromIndex < 0) {
-            var lastindex = array.lastIndexOf(value)
-            if (lastindex != -1) {
-                return lastindex
-            }   else {
+            var lastIndex = array.lastIndexOf(value)
+            if (lastIndex == -1) {
                 return -1
+            }   else {
+                return lastIndex
             }
         }
-        for (var i = 0; i < fromIndex; i++) {
-            array[i] = null
-        }
-        var index = array.indexOf(value)
+        fromIndex === undefined ? fromIndex = 0 : fromIndex
+        var index = array.slice(fromIndex).indexOf(value)
         if (index == -1) {
             return -1
         }
-        return index
+        return index + fromIndex
     },
 
     initial: function initial(array) {
         return array.slice(0, array.length - 1)
+    },
+
+    reverse: function reverse(array) {
+        return array.reverse()
+    },
+
+    sortedIndex: function sortedIndex(array, value) {
+        for (var i = 0; i < array.length; i++) {
+            if (value <= array[i]) {
+                return i
+            }
+        }
+        return array.length
     },
 }

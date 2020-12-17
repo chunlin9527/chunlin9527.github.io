@@ -39,9 +39,9 @@ var chunlin9527 = {
     },
 
     // 去除数组中从predicate返回假值开始到尾部的部分
-    dropRightWhile: function dropRightWhile(array, predicate) {
+    // dropRightWhile: function dropRightWhile(array, predicate) {
 
-    },
+    // },
 
     // 填充（替换）数组中，从start位置到end位置的值
     fill: function fill(array, value, start = 0, end = array.length) {
@@ -53,17 +53,17 @@ var chunlin9527 = {
 
     // 返回第一个通过predicate判断为真值的元素的索引值
     findIndex: function findIndex(array, predicate, fromIndex = 0) {
-        return array.map ((val, idx) => {
-            if (predicate(val)) {
-                return idx
+        for (var i = fromIndex; i < array.length; i++) {
+            if (predicate(array[i])) {
+                return i
             }
-        })
+        }
         return -1
     },
 
     // 类似findIndex，从右到左判断
-    findLastIndex: function findLastIndex(array, predicate, fromIndex) {
-        for (var i = array.length - 1; i >= 0; i--) {
+    findLastIndex: function findLastIndex(array, predicate, fromIndex = array.length - 1) {
+        for (var i = fromIndex; i >= 0; i--) {
             if (predicate(array[i])) {
                 return i
             }
@@ -158,16 +158,6 @@ var chunlin9527 = {
         return array.reverse()
     },
 
-    // 使用二进制的方式，检索value值插入到数组中尽可能小的索引位置
-    sortedIndex: function sortedIndex(array, value) {
-        for (var i = 0; i < array.length; i++) {
-            if (value <= array[i]) {
-                return i
-            }
-        }
-        return array.length
-    },
-
     // 判断value是否是类数组
     isArrayLike: function isArrayLike(value) {
         return  value !== null && typeof value !== 'function' && value.length >= 0
@@ -193,9 +183,9 @@ var chunlin9527 = {
     },
 
     // 类似_.difference，迭代器iteratee先迭代
-    differenceBy: function differenceBy(array, values, iteratee) {
+    // differenceBy: function differenceBy(array, values, iteratee) {
 
-    },
+    // },
 
     // 类似_.difference，比较器comparator先比较
     differenceWith: function differenceWith(array, values, comparator) {
@@ -251,12 +241,85 @@ var chunlin9527 = {
 
     // 类似_.pull，区别是这个方法接收一个要移除值的数组
     pullAll: function pullAll(array, values) {
-        return this.pull(array, values)
+        return this.remove(array, (val) => {return values.includes(val)})
     },
 
-    // 
     // 根据索引indexes，移除数组中对应的元素
     pullAt: function pullAt(array, indexes) {
-        return this.remove(array, )
+       
+    },
+
+    // 使用二进制的方式，检索value值插入到数组中尽可能小的索引位置
+    sortedIndex: function sortedIndex(array, value) {
+        for (var i = 0; i < array.length; i++) {
+            if (value <= array[i]) {
+                return i
+            }
+        }
+        return array.length
+    },
+
+    // sortedIndexBy: function sortedIndexBy(array, value, iteratee) {
+
+    // },
+
+    // 类似_.indexOf，在已经排序的数组上执行二进制检索
+    sortedIndexOf: function sortedIndexOf(array, value) {
+        var prev = 0
+        var l = array.length
+        while (prev < l) {
+            var m = Math.floor((prev + l) / 2)
+            if (array[m] < value) {
+                prev = m + 1
+            }   else {
+                l = m
+            } 
+        }
+        if (array[prev] == value) {
+            return prev
+        }   
+        return -1
+    },
+
+    // 类似于.sortedIndex，返回value值在数组中尽可能大的索引位置
+    sortedLastIndex: function sortedLastIndex(array, value) {
+        var prev = 0
+        var l = array.length
+        while (prev < l) {
+            var m = Math.floor((prev + l) / 2)
+            if (array[m] > value) {
+                l = m
+            }   else {
+                prev = m + 1
+            }
+        }
+        return prev
+    },
+
+    // 类似_.lastIndexOf，在已经排序的数组上执行二进制检索
+    sortedLastIndexOf: function sortedLastIndexOf(array, value) {
+        var prev = 0
+        var l = array.length
+        while (prev < l) {
+            var m = Math.floor((prev + l) / 2)
+            if (array[m] > value) {
+                l = m
+            }   else {
+                prev = m + 1
+            }
+        }
+        if (array[prev - 1] == value) {
+            return prev - 1
+        }
+        return -1
+    },
+
+    sortedUniq: function sortedUniq(array) {
+        return array.reduce((prev, cur) => {
+            if (prev.indexOf(cur) == -1) {
+                prev.push(cur)
+            }
+            return prev
+        },[])
     },
 }

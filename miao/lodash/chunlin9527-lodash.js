@@ -179,13 +179,15 @@ var chunlin9527 = {
     },
 
     // 创建一个具有唯一值的数组，每个值不包含在values数组中
-    difference: function difference(array, values) {
+    difference: function difference(array, ...values) {
         var result = []
+        var allvalues = [].concat(...values)
         for (var i = 0; i < array.length; i++) {
-            if (values.includes(array[i])) {
+            if (allvalues.includes(array[i])) {
                 continue
+            }   else {
+                result.push(array[i])
             }
-            result.push(array[i])
         }
         return result
     },
@@ -208,6 +210,7 @@ var chunlin9527 = {
         return result
     },
 
+    // 创建唯一值的数组，包含所有给定数组都包含的元素
     intersection: function intersection(...arrays) {
         var result = []
         var minarray = arrays.reduce((a,b) => {if (b.length < a.length) {return b} return a})   
@@ -228,5 +231,32 @@ var chunlin9527 = {
         return result
     },
 
+    // 获取数组的第n个元素，如果n为负数，则返回从数组结尾开始的第n个元素
+    nth: function nth(array, n = 0) {
+        if (n < 0) {
+            return array[array.length - Math.abs(n)]
+        }
+        return array[n]
+    },
 
+    // 移除数组中predicate返回为真值的所有元素
+    remove: function remove(array, predicate) {
+        return array.filter(val => {return !(predicate(val))})
+    },
+
+    // 移除数组中所有和给定值相等的元素
+    pull: function pull(array, ...values) {
+        return this.remove(array, (val) => {return values.includes(val)})
+    },
+
+    // 类似_.pull，区别是这个方法接收一个要移除值的数组
+    pullAll: function pullAll(array, values) {
+        return this.pull(array, values)
+    },
+
+    // 
+    // 根据索引indexes，移除数组中对应的元素
+    pullAt: function pullAt(array, indexes) {
+        return this.remove(array, )
+    },
 }

@@ -41,7 +41,7 @@ var chunlin9527 = {
     // 去除数组中从predicate返回假值开始到尾部的部分
     dropRightWhile: function dropRightWhile(array, predicate) {
 
-    }
+    },
 
     // 填充（替换）数组中，从start位置到end位置的值
     fill: function fill(array, value, start = 0, end = array.length) {
@@ -227,4 +227,6 @@ var chunlin9527 = {
         }
         return result
     },
+
+
 }

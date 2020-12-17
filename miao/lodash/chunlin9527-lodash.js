@@ -38,6 +38,11 @@ var chunlin9527 = {
         }
     },
 
+    // 去除数组中从predicate返回假值开始到尾部的部分
+    dropRightWhile: function dropRightWhile(array, predicate) {
+
+    }
+
     // 填充（替换）数组中，从start位置到end位置的值
     fill: function fill(array, value, start = 0, end = array.length) {
         for (var i = start; i < end; i++) {
@@ -46,31 +51,33 @@ var chunlin9527 = {
         return array
     },
 
-
-    findIndex: function findIndex(array, predicate, fromIndex) {
-
+    // 返回第一个通过predicate判断为真值的元素的索引值
+    findIndex: function findIndex(array, predicate, fromIndex = 0) {
+        return array.map ((val, idx) => {
+            if (predicate(val)) {
+                return idx
+            }
+        })
+        return -1
     },
 
+    // 类似findIndex，从右到左判断
     findLastIndex: function findLastIndex(array, predicate, fromIndex) {
-
+        for (var i = array.length - 1; i >= 0; i--) {
+            if (predicate(array[i])) {
+                return i
+            }
+        }
+        return -1
     },
 
     // 减少一级数组嵌套深度
     flatten: function flatten(array) {
-        var i = 0
-        while (i < array.length) {
-            if (array[i].length !== undefined) {
-                break
-            }
-            i++
+        var result = []
+        for (var i = 0; i < array.length; i++) {
+            result = result.concat(array[i])
         }
-        var part = array[i]
-        array.splice(i, 1)
-        for (var j = 0; j < part.length; j++) {
-            array.splice(i, 0, part[j])
-            i++
-        }
-        return array
+        return result
     },
 
     // 将数组递归为一维数组
@@ -89,7 +96,7 @@ var chunlin9527 = {
             var result = this.flatten(array)
             array = result
         }
-        return result
+        return array
     },
 
     // 数组返回对象
@@ -159,5 +166,65 @@ var chunlin9527 = {
             }
         }
         return array.length
+    },
+
+    // 判断value是否是类数组
+    isArrayLike: function isArrayLike(value) {
+        return  value !== null && typeof value !== 'function' && value.length >= 0
+    },
+
+    // 判断value是否是对象
+    isObjectLike: function isObjectLike(value) {
+        return value !== null && typeof value === 'object'
+    },
+
+    // 创建一个具有唯一值的数组，每个值不包含在values数组中
+    difference: function difference(array, values) {
+        var result = []
+        for (var i = 0; i < array.length; i++) {
+            if (values.includes(array[i])) {
+                continue
+            }
+            result.push(array[i])
+        }
+        return result
+    },
+
+    // 类似_.difference，迭代器iteratee先迭代
+    differenceBy: function differenceBy(array, values, iteratee) {
+
+    },
+
+    // 类似_.difference，比较器comparator先比较
+    differenceWith: function differenceWith(array, values, comparator) {
+        var result = []
+        for (var i = 0; i < array.length; i++) {
+            for (var j = 0; j < values.length; j++) {
+                if (!comparator(array[i], values[j])) {
+                    result.push(array[i])
+                }
+            }
+        }
+        return result
+    },
+
+    intersection: function intersection(...arrays) {
+        var result = []
+        var minarray = arrays.reduce((a,b) => {if (b.length < a.length) {return b} return a})   
+        for (var i = 0; i < minarray.length; i++) {
+            var dight = true
+            for (var j = 0; j < arrays.length; j++) {
+                if (arrays[j].includes(minarray[i])) {
+                    continue
+                }   else {
+                    dight = false
+                    break
+                }
+            }
+            if (dight == true) {
+                result.push(minarray[i])
+            }
+        }
+        return result
     },
 }

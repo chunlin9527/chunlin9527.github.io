@@ -314,6 +314,7 @@ var chunlin9527 = {
         return -1
     },
 
+    // 返回一个新的不重复的数组
     sortedUniq: function sortedUniq(array) {
         return array.reduce((prev, cur) => {
             if (prev.indexOf(cur) == -1) {
@@ -321,5 +322,94 @@ var chunlin9527 = {
             }
             return prev
         },[])
+    },
+
+    // 获取除了数组第一个元素以外的全部元素
+    tail: function tail(array) {
+        if (array.length == 0) {
+            return array
+        }
+        return array.slice(1)
+    },
+
+    // 从数组起始元素开始提取n个元素
+    take: function take(array, n = 1) {
+        return array.slice(0, n)
+    },
+
+    // 从数组最后一个元素开始提取n个元素
+    takeRight: function takeRight(array, n = 1) {
+        if (n > array.length) {
+            return array
+        }
+        return array.slice(array.length - n)
+    },
+
+    // 返回一个按顺序排列的唯一值的数组
+    union: function union(...arrays) {
+        return arrays.reduce((prev, cur) => {
+            for (var i of cur) {
+                if (prev.indexOf(i) == -1) {
+                    prev.push(i)
+                }
+            }
+            return prev
+        }, [])
+    },
+
+    // 返回一个新的去重后的数组
+    uniq: function uniq(array) {
+        return Array.from(new Set(array))
+    },
+
+    // 类似_.uniq，返回新的去重后的数组
+    // uniqBy: function uniqBy(array, iteratee = _.identity) {
+
+    // },
+
+    // 返回分组元素的新数组
+    // 新数组的第一个元素包含所有给定数组的第一个元素，第二个元素包含所有给定数组的第二个元素，以此类推
+    zip: function zip(...arrays) {
+        return arrays[0].map((_,idx) => {
+            return arrays.map(it => {
+                return it[idx]})})
+    },
+
+    // 类似_.zip，返回重组元素的新数组
+    unzip: function unzip(array) {
+        return this.zip(...array)
+    },
+
+    // 创建一个剔除所有给定值values的新数组
+    without: function without(array, ...values) {
+        return array.reduce((prev, cur) => {
+            if (!values.includes(cur)) {
+                prev.push(cur)
+            }
+            return prev
+        }, [])
+    },
+
+    // 创建一个给定数组唯一值的数组，返回值的顺序取决于他们数组的出现顺序
+    xor: function xor(...arrays) {
+        let result = []
+        let obj = {}
+        const arys = arrays.reduce((prev, cur) => {
+            return prev.concat(cur)
+        }, [])
+        arys.map(val => {
+            if (obj[val]) {
+                obj[val]++
+            }   else {
+                obj[val] = 1
+            }
+            return obj
+        })
+        for (var key in obj) {
+            if (obj[key] == 1) {
+                result.push(Number(key))
+            }
+        }
+        return result
     },
 }

@@ -18,7 +18,7 @@ var chunlin9527 = {
 
     // 返回自身值
     identity: function identity(value) {
-        return value;
+        return value
     },
 
     bind: function bind(func, thisArg, ...partials) {
@@ -34,7 +34,7 @@ var chunlin9527 = {
     },
 
     matchesProperty: function matchesProperty(path, srcValue) {
-        
+
     },
 
     property: function property(path) {

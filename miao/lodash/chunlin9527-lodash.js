@@ -1,4 +1,75 @@
 var chunlin9527 = {
+
+    // 类型判断
+    iteratee: function iteratee(predicate) {
+        if (Array.isArray(predicate)) {
+            return _.matchesProperty(predicate)
+        }
+        if (typeof predicate == 'function') {
+            return predicate
+        }
+        if (typeof predicate == 'string') {
+            return _.property(predicate)
+        }
+        if (typeof predicate == 'object') {
+            return _.matches(predicate)
+        }
+    },
+
+    // 返回自身值
+    identity: function identity(value) {
+        return value;
+    },
+
+    bind: function bind(func, thisArg, ...partials) {
+        return funtion (...args) {
+            var copy = partials.slice()
+            for (var i = 0; i < copy.length; i++) {
+                if (copy[i] === window) {
+                    copy[i] = args.shift()
+                } 
+            }
+            return func.call(thisArg, ...copy, ...args)
+        }
+    },
+
+    matchesProperty: function matchesProperty(path, srcValue) {
+        
+    },
+
+    property: function property(path) {
+        var names = path.split('.')
+        return function(obj) {
+            for (var name of names) {
+                if (name in Object(obj)) {
+                    obj = obj[name]
+                }   else {
+                    return
+                }
+            }
+            return obj
+        }
+    },
+
+    isMatch: function isMatch(obj, src) {
+        for (var key in src) {
+            if (src[key] && typeof src[key] == 'object') {
+                if (!isMatch(src[key], obj[key])) {
+                    return false
+                }
+            }   else {
+                if (obj[key] !== src[key]) {
+                    return false
+                }
+            } 
+        }
+        return true
+    },
+
+    matches: function matches(src) {
+         return _.bind(isMatch, null, _, src)
+    },
+
     // 拆分数组，并组成一个新数组
     chunk: function chunk(array, size) {
         var result = []
@@ -39,9 +110,9 @@ var chunlin9527 = {
     },
 
     // 去除数组中从predicate返回假值开始到尾部的部分
-    // dropRightWhile: function dropRightWhile(array, predicate) {
+    dropRightWhile: function dropRightWhile(array, predicate = identity) {
 
-    // },
+    },
 
     // 填充（替换）数组中，从start位置到end位置的值
     fill: function fill(array, value, start = 0, end = array.length) {
@@ -153,9 +224,13 @@ var chunlin9527 = {
         }
     },
 
-    // 反转数组
+    // 反转原数组
     reverse: function reverse(array) {
-        return array.reverse()
+        for (var i = 0; i < Math.floor(array.length >> 1); i++) {
+            var j = array.length - i - 1; 
+            [array[i], array[j]] = [array[j], array[i]]
+        }
+        return array
     },
 
     // 判断value是否是类数组
@@ -183,9 +258,9 @@ var chunlin9527 = {
     },
 
     // 类似_.difference，迭代器iteratee先迭代
-    // differenceBy: function differenceBy(array, values, iteratee) {
-
-    // },
+    differenceBy: function differenceBy(array, values, iteratee = identity) {
+        
+    },
 
     // 类似_.difference，比较器comparator先比较
     differenceWith: function differenceWith(array, values, comparator) {
@@ -380,6 +455,16 @@ var chunlin9527 = {
         return this.zip(...array)
     },
 
+
+    // 类似_.fromPairs，第一个数组中的值作为属性标识符（属性名），第二个数组中的值作为相应的属性值
+    zipObject: function zipObject(props = [], values = []) {
+        var result = {}
+        for (var i = 0; i < props.length; i++) {
+            result[props[i]] = values[i]
+        }
+        return result
+    },
+
     // 创建一个剔除所有给定值values的新数组
     without: function without(array, ...values) {
         return array.reduce((prev, cur) => {
@@ -412,4 +497,6 @@ var chunlin9527 = {
         }
         return result
     },
+
+
 }

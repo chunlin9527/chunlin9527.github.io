@@ -1,25 +1,25 @@
 var chunlin9527 = {
 
     // 类型判断
-    iteratee: function iteratee(predicate) {
-        if (Array.isArray(predicate)) {
-            return matchesProperty(predicate)
-        }
-        if (typeof predicate == 'function') {
-            return predicate
-        }
-        if (typeof predicate == 'string') {
-            return property(predicate)
-        }
-        if (typeof predicate == 'object') {
-            return matches(predicate)
-        }
-    },
+    // iteratee: function iteratee(predicate) {
+    //     if (Array.isArray(predicate)) {
+    //         return matchesProperty(predicate)
+    //     }
+    //     if (typeof predicate == 'function') {
+    //         return predicate
+    //     }
+    //     if (typeof predicate == 'string') {
+    //         return property(predicate)
+    //     }
+    //     if (typeof predicate == 'object') {
+    //         return matches(predicate)
+    //     }
+    // },
 
     // 返回自身值
-    identity: function identity(value) {
-        return value
-    },
+    // identity: function identity(value) {
+    //     return value
+    // },
 
     bind: function bind(func, thisArg, ...partials) {
         return funtion (...args) {
@@ -37,38 +37,38 @@ var chunlin9527 = {
 
     },
 
-    property: function property(path) {
-        var names = path.split('.')
-        return function(obj) {
-            for (var name of names) {
-                if (name in Object(obj)) {
-                    obj = obj[name]
-                }   else {
-                    return
-                }
-            }
-            return obj
-        }
-    },
+    // property: function property(path) {
+    //     var names = path.split('.')
+    //     return function(obj) {
+    //         for (var name of names) {
+    //             if (name in Object(obj)) {
+    //                 obj = obj[name]
+    //             }   else {
+    //                 return
+    //             }
+    //         }
+    //         return obj
+    //     }
+    // },
 
-    isMatch: function isMatch(obj, src) {
-        for (var key in src) {
-            if (src[key] && typeof src[key] == 'object') {
-                if (!isMatch(src[key], obj[key])) {
-                    return false
-                }
-            }   else {
-                if (obj[key] !== src[key]) {
-                    return false
-                }
-            } 
-        }
-        return true
-    },
+    // isMatch: function isMatch(obj, src) {
+    //     for (var key in src) {
+    //         if (src[key] && typeof src[key] == 'object') {
+    //             if (!isMatch(src[key], obj[key])) {
+    //                 return false
+    //             }
+    //         }   else {
+    //             if (obj[key] !== src[key]) {
+    //                 return false
+    //             }
+    //         } 
+    //     }
+    //     return true
+    // },
 
-    matches: function matches(src) {
-         return bind(isMatch, null, _, src)
-    },
+    // matches: function matches(src) {
+    //      return bind(isMatch, null, _, src)
+    // },
 
     // 拆分数组，并组成一个新数组
     chunk: function chunk(array, size) {
@@ -498,5 +498,24 @@ var chunlin9527 = {
         return result
     },
 
-
+    // 执行深比较来确定两者的值是否相等，如果完全相同，返回true，否则返回false
+    isEqual: function isEqual(value, other) {
+        if (value == other) {
+            return true
+        }
+        if (value == null || typeof value != 'object' || other == null || typeof other != 'object') {
+            return false
+        }
+        var value_keys = Object.keys(value)
+        var other_keys = Object.keys(other)
+        if (value_keys.length != other_keys.length) {
+            return false
+        }
+        for (var key in value_keys) {
+            if (!other_keys.includes(key) || !isEqual(value[key], other[key])) {
+                return false
+            }
+        }
+        return true
+    },  
 }

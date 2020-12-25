@@ -3,16 +3,16 @@ var chunlin9527 = {
     // 类型判断
     iteratee: function iteratee(predicate) {
         if (Array.isArray(predicate)) {
-            return _.matchesProperty(predicate)
+            return matchesProperty(predicate)
         }
         if (typeof predicate == 'function') {
             return predicate
         }
         if (typeof predicate == 'string') {
-            return _.property(predicate)
+            return property(predicate)
         }
         if (typeof predicate == 'object') {
-            return _.matches(predicate)
+            return matches(predicate)
         }
     },
 
@@ -67,7 +67,7 @@ var chunlin9527 = {
     },
 
     matches: function matches(src) {
-         return _.bind(isMatch, null, _, src)
+         return bind(isMatch, null, _, src)
     },
 
     // 拆分数组，并组成一个新数组

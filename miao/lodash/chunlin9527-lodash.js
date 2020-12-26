@@ -519,7 +519,7 @@ var chunlin9527 = {
         if (value_keys.length != other_keys.length) {
             return false
         }
-        for (var key in value_keys) {
+        for (var key of value_keys) {
             if (!other_keys.includes(key) || !isEqual(value[key], other[key])) {
                 return false
             }

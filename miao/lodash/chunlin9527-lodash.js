@@ -1,38 +1,39 @@
 var chunlin9527 = {
 
     // 类型判断
-    // iteratee: function iteratee(predicate) {
-    //     if (Array.isArray(predicate)) {
-    //         return matchesProperty(predicate)
-    //     }
-    //     if (typeof predicate == 'function') {
-    //         return predicate
-    //     }
-    //     if (typeof predicate == 'string') {
-    //         return property(predicate)
-    //     }
-    //     if (typeof predicate == 'object') {
-    //         return matches(predicate)
-    //     }
-    // },
-
-    // 返回自身值
-    // identity: function identity(value) {
-    //     return value
-    // },
-
-    bind: function bind(func, thisArg, ...partials) {
-        return funtion (...args) {
-            var copy = partials.slice()
-            for (var i = 0; i < copy.length; i++) {
-                if (copy[i] === window) {
-                    copy[i] = args.shift()
-                } 
-            }
-            return func.call(thisArg, ...copy, ...args)
+    iteratee: function iteratee(predicate) {
+        if (Array.isArray(predicate)) {
+            return matchesProperty(predicate)
+        }
+        if (typeof predicate == 'function') {
+            return predicate
+        }
+        if (typeof predicate == 'string') {
+            return property(predicate)
+        }
+        if (typeof predicate == 'object') {
+            return matches(predicate)
         }
     },
 
+    // 返回自身值
+    identity: function identity(value) {
+        return value
+    },
+
+    // bind: function bind(func, thisArg, ...partials) {
+    //     return funtion (...args) {
+    //         var copy = partials.slice()
+    //         for (var i = 0; i < copy.length; i++) {
+    //             if (copy[i] === window) {
+    //                 copy[i] = args.shift()
+    //             } 
+    //         }
+    //         return func.call(thisArg, ...copy, ...args)
+    //     }
+    // },
+
+    // 比较给定对象的path的值是否是srcValue
     matchesProperty: function matchesProperty(path, srcValue) {
 
     },
@@ -51,24 +52,31 @@ var chunlin9527 = {
     //     }
     // },
 
-    // isMatch: function isMatch(obj, src) {
-    //     for (var key in src) {
-    //         if (src[key] && typeof src[key] == 'object') {
-    //             if (!isMatch(src[key], obj[key])) {
-    //                 return false
-    //             }
-    //         }   else {
-    //             if (obj[key] !== src[key]) {
-    //                 return false
-    //             }
-    //         } 
-    //     }
-    //     return true
-    // },
+    // 执行一个深度比较，来确定object是否含有和source完全相等的属性值
+    isMatch: function isMatch(object, source) {
+        for (var key in source) {
+            if (!(key in object)) {  // 判断key
+                return false
+            }
+            if (typeof object[key] == 'object' && typeof source[key] == 'object') {
+                if (Object.keys(object[key]).length != Object.keys(source[key]).length) {
+                    return false
+                }
+                return isMatch(object[key], source[key])  // 函数返回的是值，需加return
+            }   else {
+                if (object[key] != source[key]) {
+                    return false
+                }
+            }
+        }
+        return true
+    },
 
-    // matches: function matches(src) {
-    //      return bind(isMatch, null, _, src)
-    // },
+    // 比较给定的对象和source对象，如果拥有相同的属性值返回true，否则返回false
+    matches: function matches(source) {
+         // return bind(isMatch, null, _, src)
+
+    },
 
     // 拆分数组，并组成一个新数组
     chunk: function chunk(array, size) {
@@ -226,7 +234,7 @@ var chunlin9527 = {
 
     // 反转原数组
     reverse: function reverse(array) {
-        for (var i = 0; i < Math.floor(array.length >> 1); i++) {
+        for (var i = 0; i < array.length >> 1; i++) {
             var j = array.length - i - 1; 
             [array[i], array[j]] = [array[j], array[i]]
         }
@@ -518,4 +526,25 @@ var chunlin9527 = {
         }
         return true
     },  
+
+    // 类似_.isEqual,接受customizer用来定制比较值
+    isEqualWith: function isEqualWith(value, other, customizer) {
+        if (customizer != undefined) {
+            for (var i = 0; i < value.length; i++) {
+                if (customizer(value[i], other[i]) == false) {
+                    return false
+                }
+            }
+            return true
+        }   else {
+            return this.isEqual(value, other)
+        }
+    },
+
+    // 转化value为属性路径的数组
+    toPath: function toPath(value) {
+        return value.match(/\w+/g)
+    },
 }
+
+
